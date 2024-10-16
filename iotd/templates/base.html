@@ -1,73 +1,44 @@
-<!DOCTYPE html>
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Image of the Day</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- JavaScript Libraries -->
-    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    
-    <!-- Fallback for HTML5 elements in older browsers -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <style>
         body {
             margin-top: 50px;
             margin-bottom: 50px;
             background: #f8f9fa;
         }
-        .navbar {
-            background-color: #333;
-            border-radius: 0;
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;  /* Use at least the height of the viewport */
         }
-        .navbar-brand {
-            color: #fff !important;
+        .form-container {
+            width: 100%;  /* Adjust this as necessary */
+            max-width: 500px;  /* Maximum width of the form */
+        }
+        img {
+            max-width: 100%;  /* Makes images responsive */
+            height: auto;
+            display: block;  /* Images are block level to apply margin auto */
+            margin: 0 auto;  /* Centers images horizontally */
         }
     </style>
-
-    {% block extra_css %}
-    {% endblock %}
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-            <!-- Navbar Header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Image of the Day</a>
-            </div>
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Dynamically populated nav items will go here -->
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content Area -->
-    <div class="container">
+    <div class="container center-content">
         {% block content %}
+        <!-- Content overridden in child templates -->
         {% endblock %}
     </div>
 
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
