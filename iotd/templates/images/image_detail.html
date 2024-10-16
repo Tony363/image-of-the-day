@@ -1,0 +1,10 @@
+<!-- templates/images/image_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<img src="{{ object.file.url }}" alt="{{ object.title }}" style="max-width: 500px; height: auto;">
+<p><a href="{% url 'image_update' pk=object.pk %}">Edit Image</a></p>
+<p><a href="{% url 'image_delete' pk=object.pk %}">Delete Image</a></p>
+<a href="{% url 'image_list' %}">Back to Image List</a>
+{% endblock %}

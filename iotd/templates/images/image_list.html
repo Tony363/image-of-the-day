@@ -1,0 +1,18 @@
+<!-- templates/images/image_list.html -->
+
+{% extends 'base.html' %}  <!-- Make sure you extend from a base template if you have one -->
+
+{% block content %}
+    <h1>Image List</h1>
+    <ul>
+        {% for image in object_list %}
+            <li>
+                <a href="{% url 'image_detail' pk=image.pk %}">{{ image.title }}</a>
+                <img src="{{ image.file.url }}" alt="{{ image.title }}">
+            </li>
+        {% empty %}
+            <li>No images to display.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'image_add' %}">Add new image</a>
+{% endblock %}
