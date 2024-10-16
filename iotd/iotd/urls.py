@@ -16,3 +16,6 @@ urlpatterns = [
     path('image/<int:pk>/update/', ImageUpdateView.as_view(), name='image_update'),
     path('image/<int:pk>/delete/', ImageDeleteView.as_view(), name='image_delete'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
